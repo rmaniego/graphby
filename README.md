@@ -16,21 +16,75 @@ from graphby import Bar
 from graphby import Bar
 
 labels = ["a", "b", "c", "d"]
-values = [200, 350, 20, 999]
+values = [1, 2, 3, 4]
 Bar(labels, values).plot()
 ---
 
-a: *          200
-b: **         350
-c:            20
-d: ******     999
+a: **         1
+b: *****      2
+c: ********   3
+d: ********** 4
 ```
 
-**3. Change bar character**
+**3. Negative numbers**
 ```python
 from graphby import Bar
 
 labels = ["a", "b", "c", "d"]
-values = [200, 350, 20, 999]
-Bar(labels, values, bar="+").plot()
+values = [200, -350, 20, 999]
+Bar(labels, values).plot()
+---
+
+a: ****        200
+b:            -350
+c: ***          20
+d: **********  999
 ```
+
+**4. Custom symbol**
+```python
+from graphby import Bar
+
+labels = ["a", "b", "c", "d"]
+values = [200, -350, 20, 999]
+Bar(labels, values, bar="+").plot()
+---
+
+a: ++++        200
+b:            -350
+c: +++          20
+d: ++++++++++  999
+```
+
+
+**5. Expand graph**
+```python
+from graphby import Bar
+
+labels = ["a", "b", "c", "d"]
+values = [200, -350, 20, 999]
+Bar(labels, values, limit=15).plot()
+---
+
+a: ******           200
+b:                 -350
+c: ****              20
+d: ***************  999
+```
+
+
+**6. Customizations**
+```python
+from graphby import Bar
+
+labels = ["a", "b", "c", "d"]
+values = [200, -350, 20, 999]
+Bar(labels, values, bar="#", limit=5).plot()
+---
+
+a: ##     200
+b:       -350
+c: #       20
+d: #####  999
+```
+

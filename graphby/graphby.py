@@ -5,7 +5,7 @@
 import sys
 
 class Bar:
-    def __init__(self, categories, values, bar=None):
+    def __init__(self, categories, values, bar=None, limit=10):
         """
             Read and prepare the JSON/Dictionary object.
             ...
@@ -17,9 +17,11 @@ class Bar:
                 any list numeric values (positive)
             bar: string
                 any character to use in the bar graph for each increment
+            limit: int
+                max scale of the bar graph
         """
         self.categories = categories
-        self.limit = 10
+        self.limit = get_int(limit)
         self.values = values
         self.normalized = normalize(self.values, self.limit)
         if len(self.categories) != len(self.values):
@@ -57,7 +59,7 @@ class Bar:
 def normalize(values, limit=10):
     rates = []
     limit = get_int(limit)
-    if limit <= 0: limit = 10
+    if limit <= 0: limit = 5 # minimum scale
     max = maximum(values)
     min = minimum(values)
     if min < 0:
