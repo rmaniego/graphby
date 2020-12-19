@@ -1,0 +1,10 @@
+README.md
+setup.cfg
+setup.py
+graphby/__init__.py
+graphby/graphby.py
+graphby/version.py
+graphby.egg-info/PKG-INFO
+graphby.egg-info/SOURCES.txt
+graphby.egg-info/dependency_links.txt
+graphby.egg-info/top_level.txt
