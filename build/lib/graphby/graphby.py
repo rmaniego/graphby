@@ -30,17 +30,27 @@ class Bar:
             self.bar = "*"
 
     def plot(self):
+        fvalues = []
+        for value in self.values:
+            fvalues.append(str(value))
+        max_numbers = longest(fvalues)
         max_letters = longest(self.categories)
-        for label, reduced, value in zip(self.categories, self.normalized, self.values):
+        for label, reduced, value in zip(self.categories, self.normalized, fvalues):
+            # padd labels
             limit = max_letters - len(label)
             for count in range(0, limit):
                 label = f"{label} "
+            # increment bars
             bar = ""
             for count in range(0, reduced):
                 bar = f"{bar}{self.bar}"
             limit = self.limit - len(bar)
             for count in range(0, limit):
                 bar = f"{bar} "
+            # pad values
+            limit = max_numbers - len(value)
+            for count in range(0, limit):
+                value = f" {value}"
             print(f"{label}: {bar} {value}")
             
 
